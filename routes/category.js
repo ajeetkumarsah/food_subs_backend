@@ -49,7 +49,7 @@ router.post('/', asyncHandler(async (req, res) => {
             const { name } = req.body;
             let imageUrl = 'no_url';
             if (req.file) {
-                imageUrl = `http://localhost:3000/image/category/${req.file.filename}`;
+                imageUrl = `http://15.207.167.2:3000/image/category/${req.file.filename}`;
             }
             console.log('url ', req.file)
 
@@ -97,7 +97,7 @@ router.put('/:id', asyncHandler(async (req, res) => {
             let image = req.body.image;
 
             if (req.file) {
-                image = `http://localhost:3000/image/category/${req.file.filename}`;
+                image = `http://15.207.167.2:3000/image/category/${req.file.filename}`;
             }
 
             if (!name || !image) {

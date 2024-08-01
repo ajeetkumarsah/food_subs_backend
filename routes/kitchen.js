@@ -50,7 +50,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 //             const { name,desc,location } = req.body;
 //             let imageUrl = 'no_url';
 //             if (req.file) {
-//                 imageUrl = `http://localhost:3000/image/kitchen/${req.file.filename}`;
+//                 imageUrl = `http://15.207.167.2:3000/image/kitchen/${req.file.filename}`;
 //             }
 //             console.log('url ', req.file)
 
@@ -102,7 +102,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
       let imageUrls = [];
       if (req.files && req.files.length > 0) {
-        imageUrls = req.files.map(file => `http://localhost:3000/image/kitchen/${file.filename}`);
+        imageUrls = req.files.map(file => `http://15.207.167.2:3000/image/kitchen/${file.filename}`);
       }
 
       try {
@@ -154,7 +154,7 @@ router.put('/:id', asyncHandler(async (req, res) => {
 
       let imageUrls = [];
       if (req.files && req.files.length > 0) {
-        imageUrls = req.files.map(file => `http://localhost:3000/image/kitchen/${file.filename}`);
+        imageUrls = req.files.map(file => `http://15.207.167.2:3000/image/kitchen/${file.filename}`);
       }
 
       let updateData = { name, desc, location,rating,totalRatings };
