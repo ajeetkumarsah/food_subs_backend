@@ -14,9 +14,13 @@ const kitchenSchema = new mongoose.Schema({
   rating: {
     type: Number
   },
-  image:{
-    type:String
+  totalRatings: {
+    type: String
   },
+  images: [{
+    type: String
+  }],
+
   createdAt: {
     type: Date,
     default: Date.now

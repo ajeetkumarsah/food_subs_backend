@@ -23,7 +23,7 @@ db.once('open', () => console.log('Connected to Database'));
 
 // Routes
 app.use('/kitchens', require('./routes/kitchen'));
-// app.use('/variantTypes', require('./routes/variantType'));
+app.use('/categories', require('./routes/category'));
 // app.use('/variants', require('./routes/variant'));
 // app.use('/products', require('./routes/product'));
 // app.use('/couponCodes', require('./routes/couponCode'));
@@ -50,60 +50,3 @@ app.listen(process.env.PORT||3000, () => {
 });
 
 
-
-
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
-
-// const app = express();
-// const port = 3000;
-
-// app.use(bodyParser.json());
-
-
-// mongoose.connect('mongodb+srv://ajeetkumarsah:ycf9UlIlLmYsMWDb@foodsubscription.fyrcvdn.mongodb.net/?retryWrites=true&w=majority&appName=FoodSubscription');
-// const db = mongoose.connection;
-// db.on('error', (error) => console.error(error));
-// db.once('open', () => console.log('Connected to Database'));
-
-
-// app.delete('/:id', async (req, res) => {
-//   const id = req.params.id;
-//  await User.findByIdAndDelete(id);
-//   res.json('Delete successfully');
-// });
-
-
-// app.post('/',(req,res) => {
-//   const {name,age,email,profile}=req.body;
-//   const newUser = new User({ name: name, age: age, email: email,profile:profile });
-// newUser.save();
-// res.json({"status":true,"data":"User created successfully"});
-// });
-
-// app.get('/',async (req,res) => {
-//   const users =  await User.find();
-// res.json({"status":true,"data":users});
-// });
-// app.put('/:id',async (req,res) => {
-//   const id=req.params.id;
-//   const {name,age,email,profile}=req.body;
-//     await User.findByIdAndUpdate(id,{$set:{name:name,email:email,age:age}},{new:true});
-// res.json({"status":true,"data":"Updated Successfully."});
-// });
-
-// app.listen(port, () => {
-//   console.log(`Server is running on :${port}`);
-// });
-
-
-
-// const { Schema, model } = mongoose;
-// const userSchema = new Schema({
-//   name: String,
-//   age: Number,
-//   email: String,
-//   profile:String
-// });
-// const User = model('Users', userSchema);
