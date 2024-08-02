@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   profile: {type: String},
+  email: {type: String},
+  phone: {type: String},
   createdAt: {
     type: Date,
     default: Date.now

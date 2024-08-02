@@ -15,23 +15,23 @@ router.get('/', asyncHandler(async (req, res) => {
 
 // login
 router.post('/login', async (req, res) => {
-    const { name, password} = req.body;
+    const { email, password } = req.body;
 
     try {
         // Check if the user exists
-        const user = await User.findOne({ name });
-
+        const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(401).json({ status: false, message: "Invalid name or password." });
+            return res.status(401).json({ status: false, message: "Invalid email or password." });
         }
+
         // Check if the password is correct
         if (user.password !== password) {
-            return res.status(401).json({ status: false, message: "Invalid name or password." });
+            return res.status(401).json({ status: false, message: "Invalid email or password." });
         }
 
         // Authentication successful
-        res.status(200).json({ status: true, message: "Login successful.",data: user });
+        res.status(200).json({ status: true, message: "Login successful.", data: user });
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
     }
@@ -54,13 +54,13 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 // Create a new user
 router.post('/register', asyncHandler(async (req, res) => {
-    const { name, password } = req.body;
-    if (!name || !password) {
-        return res.status(400).json({ status: false, message: "Name, and password are required." });
+    const { name, password ,email,phone} = req.body;
+    if (!email || !password) {
+        return res.status(400).json({ status: false, message: "Email, and password are required." });
     }
 
     try {
-        const user = new User({ name, password });
+        const user = new User({ name, password ,email,phone});
         const newUser = await user.save();
         res.json({ status: true, message: "User created successfully.", data: null });
     } catch (error) {
