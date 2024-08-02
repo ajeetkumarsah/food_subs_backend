@@ -159,7 +159,7 @@ router.put('/:id', asyncHandler(async (req, res) => {
 
       let updateData = { name, desc, location,rating,totalRatings };
       if (imageUrls.length > 0) {
-        updateData.image = imageUrls[0]; // Use the first image as main image if available
+        // updateData.image = imageUrls[0]; // Use the first image as main image if available
         updateData.images = imageUrls;
       }
 
