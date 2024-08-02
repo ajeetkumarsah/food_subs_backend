@@ -112,8 +112,7 @@ router.post('/', asyncHandler(async (req, res) => {
           location: location,
           rating:rating||0,
           totalRatings:totalRatings||0,
-          image: imageUrls.length > 0 ? imageUrls[0] : 'no_url', // Use the first image as main image if available
-          images: imageUrls
+          images: imageUrls,
         });
         await newKitchen.save();
         res.json({ status: true, message: "Kitchen created successfully.", data: newKitchen });

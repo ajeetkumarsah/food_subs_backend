@@ -12,6 +12,7 @@ app.use(cors({ origin: '*' }))
 app.use(bodyParser.json());
 //? setting static folder path
 app.use('/image/products', express.static('public/products'));
+app.use('/image/kitchen', express.static('public/kitchen'));
 app.use('/image/category', express.static('public/category'));
 app.use('/image/poster', express.static('public/posters'));
 
